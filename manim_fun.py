@@ -3,5 +3,13 @@ from manim import *
 class CreateCircle(Scene):
     def construct(self):
         circle = Circle()
-        circle.set_fill(PINK, opacity=0.5)
-        self.play(Create(circle))
+        square = Square()
+        triangle=Triangle()
+        
+        three= ThreeDAxes()
+
+        self.add(circle)
+        self.wait()
+        for figures in [square,triangle,three]:
+            self.play(Transform(circle,figures))
+        self.play(FadeOut(three))
