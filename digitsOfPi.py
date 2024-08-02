@@ -6,16 +6,21 @@ class piArt(Scene):
         circle = Circle(radius = 2.0)
         # total number of points that we want to have
         numPoints = 10
+        # MY IDEA IS COLORS LIST VALUE FROM 0-9 REPRESENTS NUMBER 0-9, SO 0 DOT WILL BE LABELED IN BLUE COLOR
+        colors = [BLUE, GOLD,GRAY,GREEN, GREY_BROWN,LIGHT_BROWN,PINK,PURE_GREEN,RED,YELLOW]
         # lets try to create point in the circle 
         # each point should be created 36 degrees apart to each other , pi/10
-        points ={}
         for point in range(numPoints):
-            points["point{0}".format(point)]= circle.point_at_angle(point*(PI/5)) 
+            points = circle.point_at_angle(point*(PI/5))
+            point = int(point)
+            dot = Circle(radius=0.05, color=colors[point]).move_to(points)
             
-            # point = circle.point_at_angle(point*(PI/5))
-            dot = Circle(radius=0.05, color=WHITE).move_to("point{0}".format(point))
             self.add(circle, dot)
-        print(points)
+
+          
+        
+
+      
 # need to label those points in the circles from 0-9
 # best way might be to create a dictionary and store all those commands in a dictionary
         
